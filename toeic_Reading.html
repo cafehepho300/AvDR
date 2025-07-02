@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu Hỏi TOEIC - Phần 5</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4a148c;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4a148c;
+            border-radius: 4px;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            margin: 15px 0;
+        }
+        .option {
+            display: block;
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .option.correct {
+            background-color: #e8f5e9;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+        .option.incorrect {
+            background-color: #ffebee;
+            border-color: #ef5350;
+            color: #c62828;
+            text-decoration: line-through;
+        }
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f3e5f5;
+            border-radius: 4px;
+            border-left: 4px solid #9c27b0;
+        }
+        .hidden {
+            display: none;
+        }
+        .vietnamese {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Chat styles */
+        .chat-container {
+            max-width: 100%;
+            margin: 20px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a148c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .chat-content {
+            flex: 1;
+            max-width: calc(100% - 60px);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .chat-name {
+            font-weight: 600;
+            margin-right: 8px;
+            color: #333;
+        }
+
+        .chat-time {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .chat-text {
+            background-color: #f0f2f5;
+            padding: 12px 16px;
+            border-radius: 18px;
+            color: #333;
+            line-height: 1.4;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+
+        .tips-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .tip-box {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tip-box h3 {
+            color: #4a148c;
+            margin-top: 0;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .tip-box ul {
+            padding-left: 20px;
+        }
+
+        .tip-box li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .common-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .type {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4a148c;
+        }
+
+        .type h4 {
+            color: #4a148c;
+            margin-top: 0;
+        }
+
+        .example {
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        .hint {
+            display: block;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        .tip-box strong {
+            color: #4a148c;
+        }
+
+        .explanation.hidden {
+            display: none;
+        }
+
+        .progress-container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #4a148c;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: #4a148c;
+            transition: width 0.3s ease;
+        }
+
+        .score-summary {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .score-summary h2 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .score-details {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-item .number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a148c;
+        }
+
+        .score-item .label {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khởi tạo các biến theo dõi
+            const totalQuestions = document.querySelectorAll('.question').length;
+            let answeredQuestions = 0;
+            let correctAnswers = 0;
+            let incorrectAnswers = 0;
+
+            // Cập nhật tổng số câu hỏi
+            document.getElementById('total-questions').textContent = totalQuestions;
+            document.getElementById('total-score').textContent = totalQuestions;
+
+            // Định nghĩa đáp án đúng cho các câu hỏi
+            const correctAnswerMap = {
+                'q107': 'A', 'q108': 'D', 'q109': 'A', 'q110': 'B',
+                'q111': 'A', 'q112': 'B', 'q113': 'A', 'q114': 'C',
+                'q115': 'D', 'q116': 'C', 'q117': 'D', 'q118': 'A',
+                'q119': 'A', 'q120': 'A', 'q121': 'D', 'q122': 'A',
+                'q123': 'B', 'q124': 'A', 'q155': 'A', 'q156': 'D',
+                'q157': 'B', 'q158': 'B', 'q159': 'A', 'q160': 'B',
+                'q161': 'A', 'q162': 'C', 'q163': 'D', 'q164': 'C',
+                'q165': 'C', 'q166': 'D', 'q167': 'A', 'q168': 'D',
+                'q169': 'B', 'q170': 'C', 'q171': 'A', 'q172': 'D',
+                'q173': 'B', 'q174': 'B', 'q175': 'C'
+            };
+
+            // Thêm sự kiện cho tất cả các radio button
+            const radioButtons = document.querySelectorAll('.options input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const questionName = this.name;
+                    const selectedValue = this.value;
+                    const questionDiv = this.closest('.question');
+                    const explanation = questionDiv.querySelector('.explanation');
+                    const allOptions = questionDiv.querySelectorAll('.option');
+
+                    // Hiển thị giải thích
+                    explanation.classList.remove('hidden');
+
+                    // Reset tất cả các option
+                    allOptions.forEach(option => {
+                        option.classList.remove('correct', 'incorrect');
+                    });
+
+                    // Đánh dấu đáp án đúng và sai
+                    allOptions.forEach(option => {
+                        const input = option.querySelector('input');
+                        if (input.value === correctAnswerMap[questionName]) {
+                            option.classList.add('correct');
+                        } else if (input.value === selectedValue) {
+                            option.classList.add('incorrect');
+                        }
+                    });
+
+                    // Vô hiệu hóa tất cả các radio button trong câu hỏi này
+                    questionDiv.querySelectorAll('input[type="radio"]').forEach(input => {
+                        input.disabled = true;
+                    });
+
+                    // Cập nhật tiến độ và điểm số
+                    if (!questionDiv.hasAttribute('data-answered')) {
+                        answeredQuestions++;
+                        if (selectedValue === correctAnswerMap[questionName]) {
+                            correctAnswers++;
+                        } else {
+                            incorrectAnswers++;
+                        }
+                        questionDiv.setAttribute('data-answered', 'true');
+
+                        // Cập nhật hiển thị
+                        document.getElementById('progress').textContent = answeredQuestions;
+                        document.getElementById('score').textContent = correctAnswers;
+                        
+                        // Cập nhật thanh tiến độ
+                        const progressPercent = (answeredQuestions / totalQuestions) * 100;
+                        document.querySelector('.progress-fill').style.width = progressPercent + '%';
+
+                        // Cập nhật bảng tổng kết
+                        document.getElementById('final-score').textContent = correctAnswers;
+                        document.getElementById('correct-answers').textContent = correctAnswers;
+                        document.getElementById('incorrect-answers').textContent = incorrectAnswers;
+                        document.getElementById('completion-rate').textContent = Math.round(progressPercent) + '%';
+
+                        // Hiển thị bảng tổng kết nếu đã hoàn thành tất cả câu hỏi
+                        if (answeredQuestions === totalQuestions) {
+                            document.getElementById('score-summary').style.display = 'block';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Câu Hỏi TOEIC</h1>
+        
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>Tiến độ làm bài: <span id="progress">0</span>/<span id="total-questions">0</span></span>
+                <span>Điểm số: <span id="score">0</span>/<span id="total-score">0</span></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="score-summary" id="score-summary">
+            <h2>Kết quả làm bài</h2>
+            <div class="score-details">
+                <div class="score-item">
+                    <div class="number" id="final-score">0</div>
+                    <div class="label">Điểm số</div>
+                </div>
+                <div class="score-item">
+                    <div class="number" id="correct-answers">0</div>
+                    <div class="label">Câu đúng</div>
+                </div>
+                <div class="score-item">
+                    <div class="number" id="incorrect-answers">0</div>
+                    <div class="label">Câu sai</div>
+                </div>
+                <div class="score-item">
+                    <div class="number" id="completion-rate">0%</div>
+                    <div class="label">Hoàn thành</div>
+                </div>
+            </div>
+        </div>
+
+        <p>Dưới đây là tổng hợp các câu hỏi TOEIC (Hoàn thành câu) cùng đáp án và giải thích.</p>
+
+        <section class="tips-section">
+            <h2>Mẹo Học và Làm Bài TOEIC Part 5</h2>
+            
+            <div class="tip-box">
+                <h3>1. Phân tích cấu trúc câu</h3>
+                <ul>
+                    <li>Xác định chủ ngữ và động từ chính của câu</li>
+                    <li>Nhận diện vị trí chỗ trống cần điền (trước/sau danh từ, động từ, tính từ...)</li>
+                    <li>Dựa vào các từ xung quanh để xác định từ loại cần điền</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h3>2. Các dạng câu hỏi thường gặp</h3>
+                <div class="common-types">
+                    <div class="type">
+                        <h4>Từ loại (Parts of Speech)</h4>
+                        <p>Chọn từ đúng loại: danh từ, động từ, tính từ, trạng từ</p>
+                        <div class="example">
+                            The report was _____ completed.<br>
+                            <span class="hint">→ Cần trạng từ (quickly) bổ nghĩa cho động từ completed</span>
+                        </div>
+                    </div>
+
+                    <div class="type">
+                        <h4>Thì động từ (Tenses)</h4>
+                        <p>Chọn thì phù hợp với ngữ cảnh và các từ chỉ thời gian</p>
+                        <div class="example">
+                            By next week, they _____ the project.<br>
+                            <span class="hint">→ Dùng future perfect (will have finished) với "by + thời gian tương lai"</span>
+                        </div>
+                    </div>
+
+                    <div class="type">
+                        <h4>Giới từ (Prepositions)</h4>
+                        <p>Chọn giới từ phù hợp với cụm từ cố định hoặc ngữ cảnh</p>
+                        <div class="example">
+                            The meeting is scheduled _____ Monday.<br>
+                            <span class="hint">→ Dùng "for" với lịch hẹn</span>
+                        </div>
+                    </div>
+
+                    <div class="type">
+                        <h4>Từ vựng theo ngữ cảnh</h4>
+                        <p>Chọn từ phù hợp với ngữ cảnh và chủ đề của câu</p>
+                        <div class="example">
+                            The company needs to _____ its marketing strategy.<br>
+                            <span class="hint">→ Chọn từ phù hợp ngữ cảnh kinh doanh (revise, improve, update...)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h3>3. Chiến lược làm bài hiệu quả</h3>
+                <ul>
+                    <li><strong>Đọc toàn bộ câu:</strong> Hiểu ý nghĩa tổng thể trước khi chọn đáp án</li>
+                    <li><strong>Phương pháp loại trừ:</strong> Loại bỏ các đáp án sai về ngữ pháp hoặc không phù hợp về nghĩa</li>
+                    <li><strong>Kiểm tra lại:</strong> Thử thay đáp án vào câu và đọc lại để đảm bảo câu hoàn chỉnh có nghĩa</li>
+                    <li><strong>Quản lý thời gian:</strong> Dành khoảng 30-40 giây cho mỗi câu Part 5</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h3>4. Lưu ý quan trọng</h3>
+                <ul>
+                    <li>Chú ý đến số ít/số nhiều của danh từ và động từ</li>
+                    <li>Nắm vững các cụm từ cố định thường gặp trong môi trường công việc</li>
+                    <li>Học từ vựng theo chủ đề: kinh doanh, công nghệ, nhân sự, marketing...</li>
+                    <li>Luyện tập với nhiều dạng câu hỏi khác nhau để quen với cách ra đề</li>
+                </ul>
+            </div>
+        </section>
+
+        <h2>Các Câu Hỏi</h2>
+        
+        <div class="question">
+            <div class="question-text">107. Wexler Store's management team expects that employees will ------ support any new hires.</div>
+            <div class="vietnamese">107. Đội ngũ quản lý của Cửa hàng Wexler mong đợi rằng nhân viên sẽ hỗ trợ ------ bất kỳ nhân viên mới nào.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q107" value="A"> (A) enthusiastically</label>
+                <label class="option"><input type="radio" name="q107" value="B"> (B) enthusiasm</label>
+                <label class="option"><input type="radio" name="q107" value="C"> (C) enthusiastic</label>
+                <label class="option"><input type="radio" name="q107" value="D"> (D) enthused</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) enthusiastically ✓<br>
+                <strong>Giải thích:</strong> Câu này cần một trạng từ để bổ nghĩa cho động từ "support". Đáp án A "enthusiastically" (một cách nhiệt tình) là trạng từ, phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">108. Wheel alignments and brake system ------ are part of our vehicle service plan.</div>
+            <div class="vietnamese">108. Căn chỉnh bánh xe và ------ hệ thống phanh là một phần trong kế hoạch dịch vụ xe của chúng tôi.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q108" value="A"> (A) inspects</label>
+                <label class="option"><input type="radio" name="q108" value="B"> (B) inspector</label>
+                <label class="option"><input type="radio" name="q108" value="C"> (C) inspected</label>
+                <label class="option"><input type="radio" name="q108" value="D"> (D) inspections</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) inspections ✓<br>
+                <strong>Giải thích:</strong> Câu này cần một danh từ để kết hợp với "brake system" và làm chủ ngữ cùng với "wheel alignments". Đáp án D "inspections" (các cuộc kiểm tra) là danh từ số nhiều, phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">109. Registration for the Marketing Coalition Conference is now open ------ September 30.</div>
+            <div class="vietnamese">109. Đăng ký Hội nghị Liên minh Tiếp thị hiện đã mở ------ ngày 30 tháng 9.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q109" value="A"> (A) until</label>
+                <label class="option"><input type="radio" name="q109" value="B"> (B) into</label>
+                <label class="option"><input type="radio" name="q109" value="C"> (C) yet</label>
+                <label class="option"><input type="radio" name="q109" value="D"> (D) while</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) until ✓<br>
+                <strong>Giải thích:</strong> Giới từ "until" (cho đến) được dùng để chỉ thời gian kết thúc của một hành động. Trong câu này, đăng ký sẽ mở cho đến ngày 30 tháng 9.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">110. Growth in the home entertainment industry has been ------ this quarter.</div>
+            <div class="vietnamese">110. Tăng trưởng trong ngành công nghiệp giải trí tại gia đã ------ trong quý này.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q110" value="A"> (A) separate</label>
+                <label class="option"><input type="radio" name="q110" value="B"> (B) limited</label>
+                <label class="option"><input type="radio" name="q110" value="C"> (C) willing</label>
+                <label class="option"><input type="radio" name="q110" value="D"> (D) assorted</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) limited ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ để mô tả sự tăng trưởng. Đáp án B "limited" (hạn chế) là tính từ phù hợp với ngữ cảnh, chỉ ra rằng sự tăng trưởng không nhiều.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">111. Hawson Furniture will be making ------ on the east side of town on Thursday.</div>
+            <div class="vietnamese">111. Hawson Furniture sẽ thực hiện ------ ở phía đông của thị trấn vào thứ Năm.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q111" value="A"> (A) deliveries</label>
+                <label class="option"><input type="radio" name="q111" value="B"> (B) delivered</label>
+                <label class="option"><input type="radio" name="q111" value="C"> (C) deliver</label>
+                <label class="option"><input type="radio" name="q111" value="D"> (D) deliverable</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) deliveries ✓<br>
+                <strong>Giải thích:</strong> Sau "will be making" cần một danh từ làm tân ngữ. Đáp án A "deliveries" (các chuyến giao hàng) là danh từ số nhiều, phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">112. The Marlton City Council does not have the authority to ------ parking on city streets.</div>
+            <div class="vietnamese">112. Hội đồng thành phố Marlton không có thẩm quyền ------ đỗ xe trên các đường phố của thành phố.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q112" value="A"> (A) drive</label>
+                <label class="option"><input type="radio" name="q112" value="B"> (B) prohibit</label>
+                <label class="option"><input type="radio" name="q112" value="C"> (C) bother</label>
+                <label class="option"><input type="radio" name="q112" value="D"> (D) travel</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) prohibit ✓<br>
+                <strong>Giải thích:</strong> Cần một động từ phù hợp với ngữ cảnh về quyền hạn của hội đồng thành phố. Đáp án B "prohibit" (cấm) là động từ phù hợp, chỉ ra rằng hội đồng không có quyền cấm đỗ xe.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">113. Project Earth Group is ------ for ways to reduce transport-related greenhouse gas emissions.</div>
+            <div class="vietnamese">113. Tập đoàn Project Earth đang ------ cách để giảm lượng khí thải nhà kính liên quan đến giao thông.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q113" value="A"> (A) looking</label>
+                <label class="option"><input type="radio" name="q113" value="B"> (B) seeing</label>
+                <label class="option"><input type="radio" name="q113" value="C"> (C) driving</label>
+                <label class="option"><input type="radio" name="q113" value="D"> (D) leaning</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) looking ✓<br>
+                <strong>Giải thích:</strong> Cụm "looking for" (tìm kiếm) là cụm động từ phù hợp với ngữ cảnh tìm kiếm giải pháp.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">114. Our skilled tailors are happy to design a custom-made suit that fits your style and budget ------.</div>
+            <div class="vietnamese">114. Những người thợ may lành nghề của chúng tôi rất vui lòng thiết kế một bộ comple may đo vừa vặn với phong cách và ngân sách của bạn ------.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q114" value="A"> (A) perfect</label>
+                <label class="option"><input type="radio" name="q114" value="B"> (B) perfects</label>
+                <label class="option"><input type="radio" name="q114" value="C"> (C) perfectly</label>
+                <label class="option"><input type="radio" name="q114" value="D"> (D) perfection</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) perfectly ✓<br>
+                <strong>Giải thích:</strong> Cần một trạng từ để bổ nghĩa cho cả câu. Đáp án C "perfectly" (một cách hoàn hảo) là trạng từ phù hợp.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">115. Project manager Hannah Chung has proved to be very ------ with completing company projects.</div>
+            <div class="vietnamese">115. Giám đốc dự án Hannah Chung đã chứng tỏ mình rất ------ trong việc hoàn thành các dự án của công ty.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q115" value="A"> (A) helpfulness</label>
+                <label class="option"><input type="radio" name="q115" value="B"> (B) help</label>
+                <label class="option"><input type="radio" name="q115" value="C"> (C) helpfully</label>
+                <label class="option"><input type="radio" name="q115" value="D"> (D) helpful</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) helpful ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ để bổ nghĩa cho chủ ngữ "Hannah Chung". Đáp án D "helpful" (hữu ích) là tính từ phù hợp.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">116. Lehua Vacation Club members will receive double points ------ the month of August at participating hotels.</div>
+            <div class="vietnamese">116. Các thành viên của Câu lạc bộ Kỳ nghỉ Lehua sẽ nhận được gấp đôi điểm ------ tháng Tám tại các khách sạn tham gia.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q116" value="A"> (A) onto</label>
+                <label class="option"><input type="radio" name="q116" value="B"> (B) above</label>
+                <label class="option"><input type="radio" name="q116" value="C"> (C) during</label>
+                <label class="option"><input type="radio" name="q116" value="D"> (D) between</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) during ✓<br>
+                <strong>Giải thích:</strong> Giới từ "during" (trong suốt) được dùng để chỉ khoảng thời gian diễn ra sự kiện, phù hợp với ngữ cảnh nhận điểm trong tháng Tám.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">117. The costumes were not received ------ enough to be used in the first dress rehearsal.</div>
+            <div class="vietnamese">117. Trang phục đã không được nhận ------ để sử dụng trong buổi tổng duyệt đầu tiên.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q117" value="A"> (A) far</label>
+                <label class="option"><input type="radio" name="q117" value="B"> (B) very</label>
+                <label class="option"><input type="radio" name="q117" value="C"> (C) almost</label>
+                <label class="option"><input type="radio" name="q117" value="D"> (D) soon</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) soon ✓<br>
+                <strong>Giải thích:</strong> Cần một trạng từ chỉ thời gian. Đáp án D "soon" (sớm) là trạng từ phù hợp với ngữ cảnh, chỉ ra rằng trang phục không được nhận đủ sớm.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">118. As a former publicist for several renowned orchestras, Mr. Wu would excel in the role of event ------.</div>
+            <div class="vietnamese">118. Với tư cách là một cựu nhân viên quảng cáo cho một số dàn nhạc nổi tiếng, ông Wu sẽ xuất sắc trong vai trò của một ------ sự kiện.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q118" value="A"> (A) organizer</label>
+                <label class="option"><input type="radio" name="q118" value="B"> (B) organized</label>
+                <label class="option"><input type="radio" name="q118" value="C"> (C) organizes</label>
+                <label class="option"><input type="radio" name="q118" value="D"> (D) organizational</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) organizer ✓<br>
+                <strong>Giải thích:</strong> Cần một danh từ chỉ người sau "event". Đáp án A "organizer" (người tổ chức) là danh từ phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">119. The northbound lane on Davis Street will be ------ closed because of the city's bridge reinforcement project.</div>
+            <div class="vietnamese">119. Làn đường đi về phía bắc trên phố Davis sẽ ------ đóng cửa do dự án gia cố cầu của thành phố.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q119" value="A"> (A) temporarily</label>
+                <label class="option"><input type="radio" name="q119" value="B"> (B) competitively</label>
+                <label class="option"><input type="radio" name="q119" value="C"> (C) recently</label>
+                <label class="option"><input type="radio" name="q119" value="D"> (D) collectively</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) temporarily ✓<br>
+                <strong>Giải thích:</strong> Cần một trạng từ để bổ nghĩa cho "closed". Đáp án A "temporarily" (tạm thời) là trạng từ phù hợp với ngữ cảnh đóng đường do dự án xây dựng.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">120. Airline representatives must handle a wide range of passenger issues, ------ missed connections to lost luggage.</div>
+            <div class="vietnamese">120. Đại diện hãng hàng không phải xử lý một loạt các vấn đề của hành khách, ------ các chuyến bay nối bị lỡ đến hành lý bị mất.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q120" value="A"> (A) from</label>
+                <label class="option"><input type="radio" name="q120" value="B"> (B) under</label>
+                <label class="option"><input type="radio" name="q120" value="C"> (C) on</label>
+                <label class="option"><input type="radio" name="q120" value="D"> (D) against</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) from ✓<br>
+                <strong>Giải thích:</strong> Cụm "from...to..." (từ...đến...) được dùng để liệt kê một loạt các vấn đề, phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">121. The meeting notes were ------ deleted, but Mr. Hahm was able to recreate them from memory.</div>
+            <div class="vietnamese">121. Các ghi chú cuộc họp đã bị ------ xóa, nhưng ông Hahm đã có thể tạo lại chúng từ bộ nhớ.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q121" value="A"> (A) accident</label>
+                <label class="option"><input type="radio" name="q121" value="B"> (B) accidental</label>
+                <label class="option"><input type="radio" name="q121" value="C"> (C) accidents</label>
+                <label class="option"><input type="radio" name="q121" value="D"> (D) accidentally</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) accidentally ✓<br>
+                <strong>Giải thích:</strong> Cần một trạng từ để bổ nghĩa cho động từ "deleted". Đáp án D "accidentally" (một cách tình cờ) là trạng từ phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">122. The current issue of Farming Scene magazine predicts that the price of corn will rise 5 percent over the ------ year.</div>
+            <div class="vietnamese">122. Số báo hiện tại của tạp chí Farming Scene dự đoán rằng giá ngô sẽ tăng 5% trong năm ------.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q122" value="A"> (A) next</label>
+                <label class="option"><input type="radio" name="q122" value="B"> (B) with</label>
+                <label class="option"><input type="radio" name="q122" value="C"> (C) which</label>
+                <label class="option"><input type="radio" name="q122" value="D"> (D) now</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) next ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ chỉ thời gian. Đáp án A "next" (tiếp theo) là tính từ phù hợp với ngữ cảnh dự đoán cho năm tới.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">123. Anyone who still ------ to take the fire safety training should do so before the end of the month.</div>
+            <div class="vietnamese">123. Bất cứ ai vẫn ------ tham gia khóa đào tạo an toàn phòng cháy chữa cháy nên làm như vậy trước cuối tháng.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q123" value="A"> (A) needing</label>
+                <label class="option"><input type="radio" name="q123" value="B"> (B) needs</label>
+                <label class="option"><input type="radio" name="q123" value="C"> (C) has needed</label>
+                <label class="option"><input type="radio" name="q123" value="D"> (D) were needing</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) needs ✓<br>
+                <strong>Giải thích:</strong> Sau đại từ quan hệ "who" cần một động từ ở dạng nguyên thể. Đáp án B "needs" (cần) là động từ phù hợp với ngữ cảnh.
+            </div>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">124. Emerging technologies have ------ begun to transform the shipping industry in ways that were once unimaginable.</div>
+            <div class="vietnamese">124. Các công nghệ mới nổi đã ------ bắt đầu thay đổi ngành vận tải theo những cách mà trước đây không thể tưởng tượng được.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q124" value="A"> (A) already</label>
+                <label class="option"><input type="radio" name="q124" value="B"> (B) exactly</label>
+                <label class="option"><input type="radio" name="q124" value="C"> (C) hardly</label>
+                <label class="option"><input type="radio" name="q124" value="D"> (D) closely</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) already ✓<br>
+                <strong>Giải thích:</strong> Cần một trạng từ để bổ nghĩa cho "have begun". Đáp án A "already" (đã) là trạng từ phù hợp với ngữ cảnh, chỉ ra rằng quá trình chuyển đổi đã bắt đầu.
+            </div>
+        </div>
+        
+        <h2>Thông báo về sự kiện</h2>
+        <div class="passage">
+            <p>We are delighted that you are joining us for today's event. We ask that you adhere to the following guidelines to ensure that all attendees have an enjoyable experience.</p>
+            <p>Upon entering the venue, please put any and all electronic devices in silent mode. Ringtones and lit screens are very distracting to both the performers and your fellow audience members. Moreover, audience members are not allowed to make an audio or visual recording of the performance.</p>
+            <p>Bags and other items in the aisles pose a safety concern. If your bag is too big to fit properly under a seat, consider storing it in a locker for just $2. One of our attendants will gladly assist you with that.</p>
+            <p>Thank you for your cooperation.</p>
+        </div>
+
+        <div class="question">
+            <div class="question-text">158. Where most likely is the notice posted?</div>
+            <div class="vietnamese">158. Thông báo này có khả năng được đăng ở đâu nhất?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q158" value="A"> (A) In an airplane</label>
+                <label class="option"><input type="radio" name="q158" value="B"> (B) In a concert hall</label>
+                <label class="option"><input type="radio" name="q158" value="C"> (C) At a restaurant</label>
+                <label class="option"><input type="radio" name="q158" value="D"> (D) At a post office</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) In a concert hall ✓<br>
+                <strong>Giải thích:</strong> Dựa vào nội dung thông báo đề cập đến "performers" (người biểu diễn) và "audience members" (khán giả), địa điểm phù hợp nhất là phòng hòa nhạc (concert hall).
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">159. What is stated about large bags?</div>
+            <div class="vietnamese">159. Điều gì được nói về những chiếc túi lớn?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q159" value="A"> (A) They can be put in a locked box for a fee</label>
+                <label class="option"><input type="radio" name="q159" value="B"> (B) They must be left outside the building</label>
+                <label class="option"><input type="radio" name="q159" value="C"> (C) They will be inspected by an attendant</label>
+                <label class="option"><input type="radio" name="q159" value="D"> (D) They must be stored under a seat</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) They can be put in a locked box for a fee ✓<br>
+                <strong>Giải thích:</strong> Theo thông báo, nếu túi quá lớn không vừa dưới ghế, có thể cất vào tủ khóa với giá $2 (storing it in a locker for just $2).
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">160. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?</div>
+            <div class="vietnamese">160. Câu "Please refrain from making phone calls or texting at all times" nên được đặt ở vị trí nào trong số các vị trí được đánh dấu [1], [2], [3], và [4]?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q160" value="A"> (A) [1]</label>
+                <label class="option"><input type="radio" name="q160" value="B"> (B) [2]</label>
+                <label class="option"><input type="radio" name="q160" value="C"> (C) [3]</label>
+                <label class="option"><input type="radio" name="q160" value="D"> (D) [4]</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) [2] ✓<br>
+                <strong>Giải thích:</strong> Câu này phù hợp nhất ở vị trí [2] vì nó liên quan đến việc sử dụng thiết bị điện tử, đi sau phần yêu cầu chuyển điện thoại sang chế độ im lặng.
+            </div>
+        </div>
+
+        <h2>Thông báo về thu hoạch nông sản</h2>
+        <div class="passage">
+            <p>This season's excellent weather has yielded a substantial harvest of fruits and vegetables, in many cases more than growers may find buyers for. Those of you wishing to donate surplus produce to community organizations can do so by visiting Vosey Farm and Garden's Web site (www.vgrdn.org), where you will find our list of drop-off locations.</p>
+            <p>If you need us to come to you instead, please contact us. We will reach out to one of the many independent truck drivers who have kindly volunteered to transport and quickly distribute your food donations to vetted groups that need it. Check our Web site for more information about this service as well as for insights into topics related to farming and gardening in the Northern Great Plains region.</p>
+        </div>
+
+        <div class="question">
+            <div class="question-text">155. For whom is the notice most likely intended?</div>
+            <div class="vietnamese">155. Thông báo này rất có thể dành cho ai?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q155" value="A"> (A) Farmers</label>
+                <label class="option"><input type="radio" name="q155" value="B"> (B) Professional chefs</label>
+                <label class="option"><input type="radio" name="q155" value="C"> (C) Truck drivers</label>
+                <label class="option"><input type="radio" name="q155" value="D"> (D) Supermarket managers</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) Farmers ✓<br>
+                <strong>Giải thích:</strong> Thông báo đề cập đến "growers" (người trồng trọt) và việc thu hoạch nông sản dư thừa, nên đối tượng chính là nông dân (farmers).
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">156. What does the notice indicate about the weather?</div>
+            <div class="vietnamese">156. Thông báo cho biết điều gì về thời tiết?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q156" value="A"> (A) It caused transportation delays</label>
+                <label class="option"><input type="radio" name="q156" value="B"> (B) It included heavier rain than usual</label>
+                <label class="option"><input type="radio" name="q156" value="C"> (C) It was frequently a topic in the local news</label>
+                <label class="option"><input type="radio" name="q156" value="D"> (D) It was beneficial for crops</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) It was beneficial for crops ✓<br>
+                <strong>Giải thích:</strong> Thông báo nêu rõ "excellent weather has yielded a substantial harvest" (thời tiết tuyệt vời đã mang lại vụ thu hoạch dồi dào), cho thấy thời tiết có lợi cho mùa màng.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">157. What service does the notice mention?</div>
+            <div class="vietnamese">157. Thông báo đề cập đến dịch vụ gì?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q157" value="A"> (A) Staffing for local businesses</label>
+                <label class="option"><input type="radio" name="q157" value="B"> (B) Food collection and distribution</label>
+                <label class="option"><input type="radio" name="q157" value="C"> (C) Farm machinery repair</label>
+                <label class="option"><input type="radio" name="q157" value="D"> (D) Gardening workshops</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) Food collection and distribution ✓<br>
+                <strong>Giải thích:</strong> Thông báo đề cập đến dịch vụ thu gom và phân phối thực phẩm thông qua các tài xế xe tải tình nguyện.
+            </div>
+        </div>
+
+        <h2>Email đặt bánh</h2>
+        <div class="passage">
+            <p>To: Camille Ayala <sayala@esplinelectronics.com><br>
+            From: Masae Adachi <madachi@sweeterspecialties.com><br>
+            Date: February 12<br>
+            Subject: Event order<br>
+            Attachment: Sweeter Specialties Request Form</p>
+
+            <p>Dear Ms. Ayala,</p>
+
+            <p>Thank you for selecting our business to provide baked goods for the Esplin Electronics conference event in March. We are honored that you chose us for a fourth year in a row! On March 29, we will provide a large vanilla cake for each of the ten venues you indicated, and we will deliver a custom-baked multilayer cake on the following day. You will be billed on March 28. Please review the attached order form and return it to me within seven days.</p>
+
+            <p>Regarding the cake you ordered for March 30, our head pastry chef will produce it according to your specifications. In fact, he created a sample of the complex recipe earlier today—almond crème cake with fresh raspberry filling. We have judged it to be a delectable treat, and we are sure that you will be pleased.</p>
+
+            <p>If you have any concerns, just send me an e-mail. As always, we value your business.</p>
+
+            <p>Masae Adachi, Owner<br>
+            Sweeter Specialties</p>
+        </div>
+
+        <div class="question">
+            <div class="question-text">161. What is the main purpose of the e-mail?</div>
+            <div class="vietnamese">161. Mục đích chính của email là gì?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q161" value="A"> (A) To request confirmation of an order</label>
+                <label class="option"><input type="radio" name="q161" value="B"> (B) To adjust some delivery dates</label>
+                <label class="option"><input type="radio" name="q161" value="C"> (C) To announce the expansion of a business</label>
+                <label class="option"><input type="radio" name="q161" value="D"> (D) To promote new dessert products</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) To request confirmation of an order ✓<br>
+                <strong>Giải thích:</strong> Email yêu cầu xác nhận đơn hàng thông qua việc xem xét và gửi lại form đặt hàng đính kèm trong vòng 7 ngày.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">162. What is suggested about Ms. Ayala?</div>
+            <div class="vietnamese">162. Điều gì được gợi ý về bà Ayala?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q162" value="A"> (A) She is receiving a professional award</label>
+                <label class="option"><input type="radio" name="q162" value="B"> (B) She has worked as a pastry chef</label>
+                <label class="option"><input type="radio" name="q162" value="C"> (C) She has been a Sweeter Specialties client in the past</label>
+                <label class="option"><input type="radio" name="q162" value="D"> (D) She received a positive recommendation about a chef</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) She has been a Sweeter Specialties client in the past ✓<br>
+                <strong>Giải thích:</strong> Email cho biết bà Ayala đã chọn công ty này "for a fourth year in a row" (năm thứ tư liên tiếp), cho thấy bà đã là khách hàng trước đây.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">163. What is indicated about the multilayer cake?</div>
+            <div class="vietnamese">163. Điều gì được chỉ ra về chiếc bánh nhiều tầng?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q163" value="A"> (A) It has been a best-selling product with clients</label>
+                <label class="option"><input type="radio" name="q163" value="B"> (B) It is the most expensive cake at Sweeter Specialties</label>
+                <label class="option"><input type="radio" name="q163" value="C"> (C) It is baked for Esplin Electronics annually</label>
+                <label class="option"><input type="radio" name="q163" value="D"> (D) It is a new flavor combination for Sweeter Specialties</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) It is a new flavor combination for Sweeter Specialties ✓<br>
+                <strong>Giải thích:</strong> Bánh được mô tả là một công thức phức tạp mới được tạo ra - "created a sample of the complex recipe earlier today", cho thấy đây là sự kết hợp hương vị mới.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">164. The word "judged" in paragraph 2, line 3, is closest in meaning to</div>
+            <div class="vietnamese">164. Từ "judged" trong đoạn 2, dòng 3, có nghĩa gần nhất với</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q164" value="A"> (A) criticized</label>
+                <label class="option"><input type="radio" name="q164" value="B"> (B) settled</label>
+                <label class="option"><input type="radio" name="q164" value="C"> (C) determined</label>
+                <label class="option"><input type="radio" name="q164" value="D"> (D) described</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) determined ✓<br>
+                <strong>Giải thích:</strong> Trong ngữ cảnh này, "judged" (đánh giá) có nghĩa gần nhất với "determined" (xác định), thể hiện việc họ đã xác định rằng bánh rất ngon.
+            </div>
+        </div>
+
+        <h2>Đánh giá sản phẩm</h2>
+        <div class="passage">
+            <p>Great Dishwasher!</p>
+
+            <p>I never had a dishwasher before. After remodeling my kitchen, I finally had room for a compact dishwasher. I did a lot of research, and the Dish Magic 300 seemed to be the best choice. It was written that other models, but all of the reviews were excellent. So, I decided to spend the extra money. I have had the dishwasher for one month now, and I could not be happier with my decision. Most importantly, the dishes come out sparkling clean, no matter how dirty they were going in. Also, the machine is so quiet, you do not even know it is running. Lastly, it is designed to use water efficiently, which is very important to me. Overall, I am very pleased with this dishwasher.</p>
+
+            <p>- Anna Yakovleva</p>
+        </div>
+
+        <div class="question">
+            <div class="question-text">165. Why did Ms. Yakovleva choose the Dish Magic 300 dishwasher?</div>
+            <div class="vietnamese">165. Tại sao cô Yakovleva chọn máy rửa chén Dish Magic 300?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q165" value="A"> (A) It was less expensive than most models</label>
+                <label class="option"><input type="radio" name="q165" value="B"> (B) It was the largest model available</label>
+                <label class="option"><input type="radio" name="q165" value="C"> (C) It was rated very highly</label>
+                <label class="option"><input type="radio" name="q165" value="D"> (D) It was the same brand as her other appliances</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) It was rated very highly ✓<br>
+                <strong>Giải thích:</strong> Theo đánh giá, cô ấy chọn máy rửa chén này vì "all of the reviews were excellent" (tất cả các đánh giá đều xuất sắc).
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">166. The word "running" in paragraph 1, line 7, is closest in meaning to</div>
+            <div class="vietnamese">166. Từ "running" trong đoạn 1, dòng 7, có nghĩa gần nhất với</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q166" value="A"> (A) adjusting</label>
+                <label class="option"><input type="radio" name="q166" value="B"> (B) controlling</label>
+                <label class="option"><input type="radio" name="q166" value="C"> (C) moving</label>
+                <label class="option"><input type="radio" name="q166" value="D"> (D) operating</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) operating ✓<br>
+                <strong>Giải thích:</strong> Trong ngữ cảnh này, "running" (chạy) có nghĩa là "operating" (hoạt động), chỉ trạng thái hoạt động của máy rửa chén.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">167. What is indicated about Ms. Yakovleva?</div>
+            <div class="vietnamese">167. Điều gì được chỉ ra về cô Yakovleva?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q167" value="A"> (A) She cares about saving water</label>
+                <label class="option"><input type="radio" name="q167" value="B"> (B) She recently moved to a new home</label>
+                <label class="option"><input type="radio" name="q167" value="C"> (C) She bought the dishwasher a year ago</label>
+                <label class="option"><input type="radio" name="q167" value="D"> (D) She remodels kitchens professionally</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) She cares about saving water ✓<br>
+                <strong>Giải thích:</strong> Cô ấy đề cập rằng việc sử dụng nước hiệu quả "is very important to me" (rất quan trọng đối với tôi), cho thấy cô quan tâm đến việc tiết kiệm nước.
+            </div>
+        </div>
+
+        <h2>Thông tin tuyển dụng của Skyler Airlines</h2>
+        <div class="passage">
+            <p>Skyler Airlines employs more than 20,000 people from all over the world. We're growing fast and have many positions available. So regardless of your background, there's probably a place for you on our team. Skyler employees enjoy many perks. For example, our discount program enables them to fly to any of our destinations for a fraction of the average ticket price. We offer upward global mobility, tuition reimbursement, a mentoring program, and a generous compensation package. Annual paid vacations enable a comfortable work-life balance. It's no wonder that Skyler Airlines was named "Best Airline to Work For" by Travel Journal three years in a row.</p>
+        </div>
+
+        <div class="question">
+            <div class="question-text">168. For whom is the information intended?</div>
+            <div class="vietnamese">168. Thông tin này dành cho ai?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q168" value="A"> (A) Skyler Airlines employees</label>
+                <label class="option"><input type="radio" name="q168" value="B"> (B) Skyler Airlines customers</label>
+                <label class="option"><input type="radio" name="q168" value="C"> (C) Potential journal subscribers</label>
+                <label class="option"><input type="radio" name="q168" value="D"> (D) Current job seekers</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) Current job seekers ✓<br>
+                <strong>Giải thích:</strong> Thông tin này nhắm đến người tìm việc vì nó giới thiệu về công ty và các lợi ích dành cho nhân viên, đồng thời đề cập đến việc có nhiều vị trí tuyển dụng.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">169. In the information, what is NOT mentioned as being offered to employees?</div>
+            <div class="vietnamese">169. Trong thông tin, điều gì KHÔNG được đề cập là được cung cấp cho nhân viên?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q169" value="A"> (A) Payment for educational expenses</label>
+                <label class="option"><input type="radio" name="q169" value="B"> (B) Free airline tickets</label>
+                <label class="option"><input type="radio" name="q169" value="C"> (C) Opportunities for mentoring</label>
+                <label class="option"><input type="radio" name="q169" value="D"> (D) Paid days off</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) Free airline tickets ✓<br>
+                <strong>Giải thích:</strong> Thông tin đề cập đến vé máy bay giảm giá (discount program) chứ không phải vé miễn phí.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">170. What is mentioned about Skyler Airlines?</div>
+            <div class="vietnamese">170. Điều gì được đề cập về Skyler Airlines?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q170" value="A"> (A) It flies to most destinations around the world</label>
+                <label class="option"><input type="radio" name="q170" value="B"> (B) It is planning to merge with another airline</label>
+                <label class="option"><input type="radio" name="q170" value="C"> (C) It has been praised by a trade publication</label>
+                <label class="option"><input type="radio" name="q170" value="D"> (D) It has replaced its seats with more comfortable ones</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) It has been praised by a trade publication ✓<br>
+                <strong>Giải thích:</strong> Hãng hàng không được tạp chí Travel Journal vinh danh là "Best Airline to Work For" trong ba năm liên tiếp.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">171. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?</div>
+            <div class="vietnamese">171. Câu "Our openings cover a broad range of skill sets" nên được đặt ở vị trí nào trong số các vị trí được đánh dấu [1], [2], [3], và [4]?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q171" value="A"> (A) [1]</label>
+                <label class="option"><input type="radio" name="q171" value="B"> (B) [2]</label>
+                <label class="option"><input type="radio" name="q171" value="C"> (C) [3]</label>
+                <label class="option"><input type="radio" name="q171" value="D"> (D) [4]</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (A) [1] ✓<br>
+                <strong>Giải thích:</strong> Câu này phù hợp nhất ở vị trí [1] vì nó liên quan đến việc có nhiều vị trí tuyển dụng và phù hợp với mọi người có nền tảng khác nhau.
+            </div>
+        </div>
+
+        <h2>Cuộc trò chuyện trực tuyến về bài thuyết trình</h2>
+        <div class="chat-container">
+            <div class="chat-message">
+                <div class="chat-avatar">SG</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Susan Gowan</span>
+                        <span class="chat-time">9:16 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        Good morning. The presentation slides about the new line of headphones are almost ready for distribution to our many partner stores. We are on track to send them out next Monday.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">ML</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Maggie Lorenz</span>
+                        <span class="chat-time">9:17 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        How do they look?
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">SG</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Susan Gowan</span>
+                        <span class="chat-time">9:20 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        There are still some missing elements.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">AW</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Alan Woodson</span>
+                        <span class="chat-time">9:21 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        We mainly need the information from the user studies that reviewed the headphones for sport use. We should have that report from the research and development office by Wednesday.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">ML</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Maggie Lorenz</span>
+                        <span class="chat-time">9:22 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        Yes, let's not overlook that. And if you're concerned about the report not arriving by Wednesday, please contact Matt Harven and remind him to expedite a summary to us.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">SG</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Susan Gowan</span>
+                        <span class="chat-time">9:23 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        Assuming we receive that summary soon enough to incorporate its findings into the slides, should the three of us schedule a trial run through the presentation on Thursday or Friday?
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">ML</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Maggie Lorenz</span>
+                        <span class="chat-time">9:24 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        Let's try for Thursday afternoon. Then we will still have Friday to make any necessary changes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-message">
+                <div class="chat-avatar">AW</div>
+                <div class="chat-content">
+                    <div class="chat-header">
+                        <span class="chat-name">Alan Woodson</span>
+                        <span class="chat-time">9:25 A.M.</span>
+                    </div>
+                    <div class="chat-text">
+                        Fine by me. I'm free after 2 P.M.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">172. What is indicated about a presentation?</div>
+            <div class="vietnamese">172. Điều gì được chỉ ra về một bài trình bày?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q172" value="A"> (A) It will be expensive to produce</label>
+                <label class="option"><input type="radio" name="q172" value="B"> (B) It will highlight some best-selling products</label>
+                <label class="option"><input type="radio" name="q172" value="C"> (C) It will be Ms. Gowan's first project</label>
+                <label class="option"><input type="radio" name="q172" value="D"> (D) It will be sent to multiple locations</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) It will be sent to multiple locations ✓<br>
+                <strong>Giải thích:</strong> Bài thuyết trình sẽ được gửi đến "many partner stores" (nhiều cửa hàng đối tác).
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">173. At 9:22 A.M., what does Ms. Lorenz imply when she writes, "let's not overlook that"?</div>
+            <div class="vietnamese">173. Lúc 9:22 sáng, cô Lorenz ngụ ý gì khi viết "đừng bỏ qua điều đó"?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q173" value="A"> (A) More staff should attend a meeting</label>
+                <label class="option"><input type="radio" name="q173" value="B"> (B) Information from the user studies is important</label>
+                <label class="option"><input type="radio" name="q173" value="C"> (C) The presentation must run smoothly</label>
+                <label class="option"><input type="radio" name="q173" value="D"> (D) Partner stores must be notified about an upcoming report</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) Information from the user studies is important ✓<br>
+                <strong>Giải thích:</strong> Cô Lorenz nhấn mạnh tầm quan trọng của thông tin từ các nghiên cứu người dùng cần được đưa vào bài thuyết trình.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">174. Who most likely is Mr. Harven?</div>
+            <div class="vietnamese">174. Ai có khả năng nhất là ông Harven?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q174" value="A"> (A) A store manager</label>
+                <label class="option"><input type="radio" name="q174" value="B"> (B) A product researcher</label>
+                <label class="option"><input type="radio" name="q174" value="C"> (C) An amateur athlete</label>
+                <label class="option"><input type="radio" name="q174" value="D"> (D) An advertising executive</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) A product researcher ✓<br>
+                <strong>Giải thích:</strong> Ông Harven có thể là một nhà nghiên cứu sản phẩm vì ông liên quan đến việc cung cấp báo cáo từ phòng nghiên cứu và phát triển.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">175. When do the writers plan to meet to review a slide presentation?</div>
+            <div class="vietnamese">175. Khi nào các người viết dự định gặp nhau để xem lại bài trình bày slide?</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q175" value="A"> (A) On Monday</label>
+                <label class="option"><input type="radio" name="q175" value="B"> (B) On Wednesday</label>
+                <label class="option"><input type="radio" name="q175" value="C"> (C) On Thursday</label>
+                <label class="option"><input type="radio" name="q175" value="D"> (D) On Friday</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) On Thursday ✓<br>
+                <strong>Giải thích:</strong> Họ quyết định gặp nhau vào chiều thứ Năm để xem lại bài thuyết trình, với thứ Sáu dự phòng để thực hiện các thay đổi cần thiết.
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Hướng Dẫn Học TOEIC. Tất cả các quyền được bảo lưu bởi Phạm Trần Gia Khang</p>
+        </footer>
+    </div>
+</body>
+</html> 
