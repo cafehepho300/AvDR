@@ -13,6 +13,58 @@
             margin: 0;
             padding: 20px;
         }
+
+        .introduction {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .introduction h2 {
+            color: #1a237e;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .introduction p {
+            font-size: 1.1em;
+            margin: 20px 0;
+        }
+
+        .key-points {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .key-points h3 {
+            color: #4a148c;
+            margin-top: 0;
+        }
+
+        .key-points ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .key-points li:before {
+            content: "•";
+            color: #4a148c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -312,6 +364,9 @@
 
             // Định nghĩa đáp án đúng cho các câu hỏi
             const correctAnswerMap = {
+                'q101': 'B', 'q102': 'D', 'q103': 'C', 'q104': 'B',
+                'q105': 'D', 'q106': 'D', 'q125': 'D', 'q126': 'D',
+                'q127': 'C', 'q128': 'C', 'q129': 'C', 'q130': 'B',
                 'q107': 'A', 'q108': 'D', 'q109': 'A', 'q110': 'B',
                 'q111': 'A', 'q112': 'B', 'q113': 'A', 'q114': 'C',
                 'q115': 'D', 'q116': 'C', 'q117': 'D', 'q118': 'A',
@@ -394,11 +449,26 @@
 <body>
     <div class="container">
         <h1>Câu Hỏi TOEIC</h1>
-        
+
+        <div class="introduction">
+            <h2>Giới thiệu về TOEIC Part 5</h2>
+            <p>TOEIC Part 5 là phần thi trắc nghiệm về ngữ pháp và từ vựng, bao gồm 30 câu hỏi hoàn thành câu. Mỗi câu hỏi có 4 lựa chọn (A, B, C, D), và thí sinh cần chọn đáp án phù hợp nhất để hoàn thành câu.</p>
+            
+            <div class="key-points">
+                <h3>Đặc điểm chính:</h3>
+                <ul>
+                    <li>Thời gian làm bài: khoảng 30 phút (trung bình 1 phút/câu)</li>
+                    <li>Số câu hỏi: 30 câu</li>
+                    <li>Dạng câu hỏi: Hoàn thành câu (Incomplete Sentences)</li>
+                    <li>Kỹ năng kiểm tra: Ngữ pháp, từ vựng, và cấu trúc câu</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="progress-container">
             <div class="progress-info">
-                <span>Tiến độ làm bài: <span id="progress">0</span>/<span id="total-questions">0</span></span>
-                <span>Điểm số: <span id="score">0</span>/<span id="total-score">0</span></span>
+                <span>Tiến độ: <span id="answered-questions">0</span>/<span id="total-questions">0</span></span>
+                <span>Điểm: <span id="current-score">0</span>/<span id="total-score">0</span></span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
@@ -406,11 +476,11 @@
         </div>
 
         <div class="score-summary" id="score-summary">
-            <h2>Kết quả làm bài</h2>
+            <h2>Kết quả của bạn</h2>
             <div class="score-details">
                 <div class="score-item">
                     <div class="number" id="final-score">0</div>
-                    <div class="label">Điểm số</div>
+                    <div class="label">Tổng điểm</div>
                 </div>
                 <div class="score-item">
                     <div class="number" id="correct-answers">0</div>
@@ -419,10 +489,6 @@
                 <div class="score-item">
                     <div class="number" id="incorrect-answers">0</div>
                     <div class="label">Câu sai</div>
-                </div>
-                <div class="score-item">
-                    <div class="number" id="completion-rate">0%</div>
-                    <div class="label">Hoàn thành</div>
                 </div>
             </div>
         </div>
@@ -505,6 +571,186 @@
 
         <h2>Các Câu Hỏi</h2>
         
+        <div class="question">
+            <div class="question-text">101. Former Sendai Company CEO Ken Nakata spoke about ------ career experiences.</div>
+            <div class="vietnamese">101. Cựu Giám đốc điều hành Công ty Sendai, ông Ken Nakata đã nói về kinh nghiệm nghề nghiệp của ------ .</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q101" value="A"> (A) he</label>
+                <label class="option"><input type="radio" name="q101" value="B"> (B) his</label>
+                <label class="option"><input type="radio" name="q101" value="C"> (C) him</label>
+                <label class="option"><input type="radio" name="q101" value="D"> (D) himself</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) his ✓<br>
+                <strong>Giải thích:</strong> Câu này cần tính từ sở hữu để chỉ "career experiences" thuộc về Ken Nakata. "His" là tính từ sở hữu phù hợp trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">102. Passengers who will be taking a ------ domestic flight should go to Terminal A.</div>
+            <div class="vietnamese">102. Những hành khách sẽ đi một chuyến bay nội địa ------ nên đến Nhà ga A.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q102" value="A"> (A) connectivity</label>
+                <label class="option"><input type="radio" name="q102" value="B"> (B) connects</label>
+                <label class="option"><input type="radio" name="q102" value="C"> (C) connect</label>
+                <label class="option"><input type="radio" name="q102" value="D"> (D) connecting</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) connecting ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ để bổ nghĩa cho danh từ "flight". "Connecting" (nối chuyến) là tính từ phù hợp trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">103. Fresh and ------ apple-cider donuts are available at Oakcrest Orchard's retail shop for £5 per dozen.</div>
+            <div class="vietnamese">103. Bánh rán táo tươi và ------ có bán tại cửa hàng bán lẻ của Oakcrest Orchard với giá £5 một tá.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q103" value="A"> (A) eaten</label>
+                <label class="option"><input type="radio" name="q103" value="B"> (B) open</label>
+                <label class="option"><input type="radio" name="q103" value="C"> (C) tasty</label>
+                <label class="option"><input type="radio" name="q103" value="D"> (D) free</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) tasty ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ để mô tả bánh rán táo. "Tasty" (ngon) là tính từ phù hợp và có nghĩa logic trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">104. Zahn Flooring has the widest selection of ------ in the United Kingdom.</div>
+            <div class="vietnamese">104. Zahn Flooring có sự lựa chọn ------ phong phú nhất tại Vương quốc Anh.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q104" value="A"> (A) paints</label>
+                <label class="option"><input type="radio" name="q104" value="B"> (B) tiles</label>
+                <label class="option"><input type="radio" name="q104" value="C"> (C) furniture</label>
+                <label class="option"><input type="radio" name="q104" value="D"> (D) curtains</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) tiles ✓<br>
+                <strong>Giải thích:</strong> Vì đây là công ty Zahn Flooring (sàn nhà), nên "tiles" (gạch lát) là lựa chọn hợp lý nhất trong các sản phẩm được đề cập.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">105. One responsibility of the IT department is to ensure that the company is using ------ software.</div>
+            <div class="vietnamese">105. Một trách nhiệm của bộ phận CNTT là đảm bảo công ty đang sử dụng phần mềm ------.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q105" value="A"> (A) update</label>
+                <label class="option"><input type="radio" name="q105" value="B"> (B) updating</label>
+                <label class="option"><input type="radio" name="q105" value="C"> (C) updates</label>
+                <label class="option"><input type="radio" name="q105" value="D"> (D) updated</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) updated ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ để mô tả "software". "Updated" (đã cập nhật) là tính từ phù hợp trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">106. It is wise to check a company's dress code ------ visiting its head office.</div>
+            <div class="vietnamese">106. Sẽ là khôn ngoan nếu kiểm tra quy định về trang phục của một công ty ------ ghé thăm trụ sở chính của họ.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q106" value="A"> (A) so</label>
+                <label class="option"><input type="radio" name="q106" value="B"> (B) how</label>
+                <label class="option"><input type="radio" name="q106" value="C"> (C) like</label>
+                <label class="option"><input type="radio" name="q106" value="D"> (D) before</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) before ✓<br>
+                <strong>Giải thích:</strong> Cần một giới từ chỉ thời gian. "Before" (trước khi) là giới từ phù hợp trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">125. The company handbook outlines the high ------ that employees are expected to meet every day.</div>
+            <div class="vietnamese">125. Sổ tay công ty nêu rõ các ------ cao mà nhân viên được kỳ vọng sẽ đáp ứng hàng ngày.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q125" value="A"> (A) experts</label>
+                <label class="option"><input type="radio" name="q125" value="B"> (B) accounts</label>
+                <label class="option"><input type="radio" name="q125" value="C"> (C) recommendations</label>
+                <label class="option"><input type="radio" name="q125" value="D"> (D) standards</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) standards ✓<br>
+                <strong>Giải thích:</strong> Cần một danh từ phù hợp với "high" và ngữ cảnh về kỳ vọng của công ty. "Standards" (tiêu chuẩn) là lựa chọn phù hợp nhất.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">126. Because ------ of the board members have scheduling conflicts, the board meeting will be moved to a date when all can attend.</div>
+            <div class="vietnamese">126. Bởi vì ------ thành viên hội đồng quản trị có xung đột lịch trình, cuộc họp hội đồng sẽ được chuyển sang ngày mà tất cả mọi người có thể tham dự.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q126" value="A"> (A) any</label>
+                <label class="option"><input type="radio" name="q126" value="B"> (B) everybody</label>
+                <label class="option"><input type="radio" name="q126" value="C"> (C) those</label>
+                <label class="option"><input type="radio" name="q126" value="D"> (D) some</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (D) some ✓<br>
+                <strong>Giải thích:</strong> Cần một từ chỉ số lượng không xác định. "Some" (một số) là lựa chọn phù hợp nhất trong ngữ cảnh này.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">127. The project ------ the collaboration of several teams across the company.</div>
+            <div class="vietnamese">127. Dự án ------ sự hợp tác của một số nhóm trong công ty.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q127" value="A"> (A) passed</label>
+                <label class="option"><input type="radio" name="q127" value="B"> (B) decided</label>
+                <label class="option"><input type="radio" name="q127" value="C"> (C) required</label>
+                <label class="option"><input type="radio" name="q127" value="D"> (D) performed</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) required ✓<br>
+                <strong>Giải thích:</strong> Cần một động từ phù hợp với ngữ cảnh về sự cần thiết của hợp tác. "Required" (đòi hỏi) là lựa chọn phù hợp nhất.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">128. We cannot send the store's coupon booklet to the printers until it ------ by Ms. Jeon.</div>
+            <div class="vietnamese">128. Chúng tôi không thể gửi sách phiếu giảm giá của cửa hàng cho nhà in cho đến khi nó ------ bởi cô Jeon.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q128" value="A"> (A) is approving</label>
+                <label class="option"><input type="radio" name="q128" value="B"> (B) approves</label>
+                <label class="option"><input type="radio" name="q128" value="C"> (C) has been approved</label>
+                <label class="option"><input type="radio" name="q128" value="D"> (D) will be approved</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) has been approved ✓<br>
+                <strong>Giải thích:</strong> Cần một động từ ở thì hiện tại hoàn thành bị động để diễn tả hành động phải hoàn thành trước khi một hành động khác có thể xảy ra.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">129. ------ the closure of Verdigold Transport Services, we are looking for a new shipping company.</div>
+            <div class="vietnamese">129. ------ việc đóng cửa của Dịch vụ Vận tải Verdigold, chúng tôi đang tìm kiếm một công ty vận chuyển mới.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q129" value="A"> (A) In spite of</label>
+                <label class="option"><input type="radio" name="q129" value="B"> (B) Just as</label>
+                <label class="option"><input type="radio" name="q129" value="C"> (C) In light of</label>
+                <label class="option"><input type="radio" name="q129" value="D"> (D) According to</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (C) In light of ✓<br>
+                <strong>Giải thích:</strong> Cần một cụm từ nối thể hiện nguyên nhân. "In light of" (do, vì) là cụm từ phù hợp để chỉ ra lý do tìm công ty vận chuyển mới.
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">130. The ------ information provided by Uniss Bank's brochure helps applicants understand the terms of their loans.</div>
+            <div class="vietnamese">130. Thông tin ------ được cung cấp trong tờ rơi của Ngân hàng Uniss giúp người nộp đơn hiểu các điều khoản khoản vay của họ.</div>
+            <div class="options">
+                <label class="option"><input type="radio" name="q130" value="A"> (A) arbitrary</label>
+                <label class="option"><input type="radio" name="q130" value="B"> (B) supplemental</label>
+                <label class="option"><input type="radio" name="q130" value="C"> (C) superfluous</label>
+                <label class="option"><input type="radio" name="q130" value="D"> (D) potential</label>
+            </div>
+            <div class="explanation hidden">
+                <strong>Đáp án đúng:</strong> (B) supplemental ✓<br>
+                <strong>Giải thích:</strong> Cần một tính từ mô tả thông tin bổ sung hữu ích. "Supplemental" (bổ sung) là lựa chọn phù hợp nhất trong ngữ cảnh này.
+            </div>
+        </div>
+
         <div class="question">
             <div class="question-text">107. Wexler Store's management team expects that employees will ------ support any new hires.</div>
             <div class="vietnamese">107. Đội ngũ quản lý của Cửa hàng Wexler mong đợi rằng nhân viên sẽ hỗ trợ ------ bất kỳ nhân viên mới nào.</div>
@@ -777,9 +1023,9 @@
         
         <h2>Thông báo về sự kiện</h2>
         <div class="passage">
-            <p>We are delighted that you are joining us for today's event. -[1]-. We ask that you adhere to the following guidelines to ensure that all attendees have an enjoyable experience.</p>
-            <p>Upon entering the venue, please put any and all electronic devices in silent mode. Ringtones and lit screens are very distracting to both the performers and your fellow audience members.-[2]- Moreover, audience members are not allowed to make an audio or visual recording of the performance.</p>
-            <p>Bags and other items in the aisles pose a safety concern.-[3]- If your bag is too big to fit properly under a seat, consider storing it in a locker for just $2.-[4]- One of our attendants will gladly assist you with that.</p>
+            <p>We are delighted that you are joining us for today's event. We ask that you adhere to the following guidelines to ensure that all attendees have an enjoyable experience.</p>
+            <p>Upon entering the venue, please put any and all electronic devices in silent mode. Ringtones and lit screens are very distracting to both the performers and your fellow audience members. Moreover, audience members are not allowed to make an audio or visual recording of the performance.</p>
+            <p>Bags and other items in the aisles pose a safety concern. If your bag is too big to fit properly under a seat, consider storing it in a locker for just $2. One of our attendants will gladly assist you with that.</p>
             <p>Thank you for your cooperation.</p>
         </div>
 
@@ -1015,7 +1261,7 @@
 
         <h2>Thông tin tuyển dụng của Skyler Airlines</h2>
         <div class="passage">
-            <p>Skyler Airlines employs more than 20,000 people from all over the world. We're growing fast and have many positions available.-[1]-. So regardless of your background, there's probably a place for you on our team. Skyler employees enjoy many perks.-[2]-. For example, our discount program enables them to fly to any of our destinations for a fraction of the average ticket price.-[3]- We offer upward global mobility, tuition reimbursement, a mentoring program, and a generous compensation package.-[4]- Annual paid vacations enable a comfortable work-life balance. It's no wonder that Skyler Airlines was named "Best Airline to Work For" by Travel Journal three years in a row.</p>
+            <p>Skyler Airlines employs more than 20,000 people from all over the world. We're growing fast and have many positions available. So regardless of your background, there's probably a place for you on our team. Skyler employees enjoy many perks. For example, our discount program enables them to fly to any of our destinations for a fraction of the average ticket price. We offer upward global mobility, tuition reimbursement, a mentoring program, and a generous compensation package. Annual paid vacations enable a comfortable work-life balance. It's no wonder that Skyler Airlines was named "Best Airline to Work For" by Travel Journal three years in a row.</p>
         </div>
 
         <div class="question">
@@ -1246,7 +1492,7 @@
         </div>
 
         <footer>
-            <p>© 2025 Hướng Dẫn Học TOEIC. Tất cả các quyền được bảo lưu bởi Phạm Trần Gia Khang</p>
+            <p>© 2024 Hướng Dẫn Học TOEIC. Tất cả các quyền được bảo lưu bởi Phạm Trần Gia Khang</p>
         </footer>
     </div>
 </body>
